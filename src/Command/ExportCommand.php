@@ -56,7 +56,7 @@ class ExportCommand extends AbstractCommand
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
 
         $monitoringItemId = $input->getOption('monitoring-item-id');
