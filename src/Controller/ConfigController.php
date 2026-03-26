@@ -27,7 +27,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Lock\LockFactory;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/admin/elementsexporttoolkit/config')]
 class ConfigController extends AdminAbstractController
@@ -462,13 +462,7 @@ class ConfigController extends AdminAbstractController
             ).' '.PIMCORE_PROJECT_ROOT.'/bin/console export-toolkit:export --config-name="'.$configName.'"';
     }
 
-    /**
-     * @Route("/execute-export")
-     *
-     * @param Request $request
-     *
-     * @return JsonResponse
-     */
+    #[Route('/execute-export')]
     public function executeExportAction(Request $request,  LockFactory $lockFactory)
     {
         $workername = $request->get('name');
